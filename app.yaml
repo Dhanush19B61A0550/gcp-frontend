@@ -1,10 +1,10 @@
-runtime: nodejs18
-instance_class: F1
+runtime: nodejs20  # Update to nodejs20 as nodejs18 is deprecated
+instance_class: F1  # This sets the instance class to F1, which is a smaller instance
 
 handlers:
   - url: /
-    static_files: build/index.html
+    static_files: build/index.html  # Serve the index.html file
     upload: build/index.html
 
   - url: /
-    static_dir: build
+    static_dir: build  # Serve the rest of the files in the 'build' directory
