@@ -1,4 +1,4 @@
-runtime: nodejs18
+runtime: nodejs20
 instance_class: F1
 
 handlers:
@@ -8,3 +8,4 @@ handlers:
   - url: /.*  # Any other URL
     static_files: build/index.html
     upload: build/index.html
+
