@@ -5,7 +5,8 @@ handlers:
   - url: /static
     static_dir: build/static
 
-  - url: /.*  # Any other URL
+  - url: /.*  # Handle all other URLs
     static_files: build/index.html
     upload: build/index.html
+
 
