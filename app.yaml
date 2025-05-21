@@ -2,11 +2,13 @@ runtime: nodejs20
 instance_class: F1
 
 handlers:
-  - url: /static
-    static_dir: build/static
+  - url: /(.*\..+)$  # Serve static files (e.g., .js, .css, .png)
+    static_files: dist/\1
+    upload: dist/(.*\..+)$
 
-  - url: /.*  # Handle all other URLs
-    static_files: build/index.html
-    upload: build/index.html
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
+
 
 
