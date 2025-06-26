@@ -14,21 +14,21 @@ jobs:
         working-directory: TalentsFlowFrontend_demo
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build React app
+      - name: Build React App
         run: npm run build
 
-      - name: Authenticate with Google Cloud
+      - name: Authenticate with GCP
         uses: google-github-actions/auth@v2
         with:
           credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v2
         with:
-          deliverables: TalentsFlowFrontend_demo/app.yaml
+          deliverables: app.yaml
           project_id: java-backend-460409
           promote: true
           flags: '--quiet'
