@@ -32,6 +32,6 @@ jobs:
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v2
         with:
-          project_id: java-backend-460409
+          project_id: fine-entry-459905-s5
           deliverables: app.yaml
           promote: true
