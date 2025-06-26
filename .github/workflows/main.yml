@@ -19,18 +19,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        working-directory: TalentsFlowFrontend_demo
         run: npm install
 
       - name: Build the React app
-        working-directory: TalentsFlowFrontend_demo
         run: npm run build
-
-      - name: Show contents
-        working-directory: TalentsFlowFrontend_demo
-        run: |
-          ls -al
-          ls -al build
 
       - name: Authenticate with GCP
         uses: google-github-actions/auth@v2
@@ -41,6 +33,5 @@ jobs:
         uses: google-github-actions/deploy-appengine@v2
         with:
           project_id: java-backend-460409
-          deliverables: TalentsFlowFrontend_demo/app.yaml
-          working_directory: TalentsFlowFrontend_demo
+          deliverables: app.yaml
           promote: true
