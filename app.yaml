@@ -1,14 +1,13 @@
-runtime: nodejs18  # Required even for static sites
-
+runtime: nodejs18
 instance_class: F1
 
 handlers:
   - url: /static
     static_dir: build/static
 
-  - url: /(.*\.(css|js|png|jpg|ico|svg|json|txt|webp|woff2?))$
+  - url: /(.*\.(css|js|png|jpg|ico|svg|json|txt))$
     static_files: build/\1
-    upload: build/.*\.(css|js|png|jpg|ico|svg|json|txt|webp|woff2?)$
+    upload: build/(.*\.(css|js|png|jpg|ico|svg|json|txt))$
 
   - url: /.*
     static_files: build/index.html
