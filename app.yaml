@@ -2,16 +2,17 @@ runtime: nodejs18
 instance_class: F1
 
 handlers:
-  # Serve all files in the build/static folder
   - url: /static
     static_dir: build/static
 
-  # Serve common asset files
   - url: /(.*\.(css|js|png|jpg|ico|svg|json|txt))$
     static_files: build/\1
     upload: build/(.*\.(css|js|png|jpg|ico|svg|json|txt))$
 
-  # Catch-all to serve index.html for client-side routing
   - url: /.*
     static_files: build/index.html
     upload: build/index.html
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 5
