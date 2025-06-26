@@ -1,0 +1,6 @@
+# Ignore everything by default
+*
+
+# Allow only the build directory and app.yaml
+!build/**
+!app.yaml
